@@ -42,7 +42,7 @@ app.post('/signup', async (req, res) => {
     console.log(req.body);
     const newCafe = new Cafe({ n1, email });
     await newCafe.save();
-    res.sendFile(__dirname + '/index.html');
+    res.redirect('/');
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: 'Internal server error' });
@@ -107,7 +107,7 @@ app.post('/booking', async (req, res) => {
   const newbooking = new Booking({name,phone,person,date,time,message});
 await newbooking.save();
   console.log(req.body);
-  res.sendFile(__dirname + '/index.html');
+  res.redirect('/');
 
 
 
