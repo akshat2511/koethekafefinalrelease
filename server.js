@@ -11,8 +11,8 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const connectionString = 'mongodb+srv://adm:adm@akshatbhaika.ftmgts2.mongodb.net/';
-mongoose.connect(connectionString);
+// const connectionString = 'mongodb+srv://adm:adm@akshatbhaika.ftmgts2.mongodb.net/';
+mongoose.connect('mongodb+srv://adm:adm@akshatbhaika.ftmgts2.mongodb.net/');
 const photoforhero = mongoose.model('photoforhero',{text1:String,text2:String,text3:String,imageurl:String});
 const speciality = mongoose.model('special',{text1:String,text2:String,text3:String,imageurl:String});
 
@@ -20,7 +20,6 @@ app.get('/', async (req, res) => {
   let sp =await speciality.find({});
  let m= await photoforhero.find({});
  res.render('index.ejs',{m:m,sp:sp});
-  //res.sendFile(__dirname + '/index.html');
 });
 const cafeSchema = new mongoose.Schema({
   n1: String,
